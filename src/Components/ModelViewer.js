@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef } from "react";
 import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
@@ -10,6 +9,11 @@ const ModelViewer = ({ modelLink, enableRotation = true, enableZoom = true, widt
 
   useEffect(() => {
     if (WebGL.isWebGLAvailable()) {
+      if (!modelLink.endsWith('.glb') && !modelLink.endsWith('.gltf')) {
+        console.error("Invalid model format. Please provide a '.glb' or '.gltf' file.");
+        return;
+      }
+
       const scene = new THREE.Scene();
       const camera = new THREE.PerspectiveCamera(
         75,
@@ -19,7 +23,7 @@ const ModelViewer = ({ modelLink, enableRotation = true, enableZoom = true, widt
       );
 
       const renderer = new THREE.WebGLRenderer();
-      renderer.setClearColor(0x000000, 0)
+      renderer.setClearColor(0x000000, 0);
       renderer.setSize(mountRef.current.clientWidth, mountRef.current.clientHeight);
       mountRef.current.appendChild(renderer.domElement);
 
@@ -56,17 +60,16 @@ const ModelViewer = ({ modelLink, enableRotation = true, enableZoom = true, widt
       const animate = () => {
         if (model && enableRotation) {
           model.rotation.y += 0.05;
-         
         }
         controls.update();
-          renderer.render(scene, camera);
+        renderer.render(scene, camera);
       };
 
       renderer.setAnimationLoop(animate);
 
       return () => {
         renderer.setAnimationLoop(null);
-        mountRef?.current?.removeChild(renderer?.domElement);
+        mountRef.current.removeChild(renderer.domElement);
       };
     } else {
       const warning = WebGL.getWebGLErrorMessage();
@@ -74,7 +77,7 @@ const ModelViewer = ({ modelLink, enableRotation = true, enableZoom = true, widt
     }
   }, [modelLink, enableRotation, enableZoom]);
 
-  return <div ref={mountRef} style={{ width, height }} ></div>;
+  return <div ref={mountRef} style={{ width, height }}></div>;
 };
 
 export default ModelViewer;
