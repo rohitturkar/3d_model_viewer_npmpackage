@@ -56,10 +56,10 @@ const ModelViewer = ({ modelLink, enableRotation = true, enableZoom = true, widt
       const animate = () => {
         if (model && enableRotation) {
           model.rotation.y += 0.05;
-          controls.update();
-          renderer.render(scene, camera);
+         
         }
-       
+        controls.update();
+          renderer.render(scene, camera);
       };
 
       renderer.setAnimationLoop(animate);
