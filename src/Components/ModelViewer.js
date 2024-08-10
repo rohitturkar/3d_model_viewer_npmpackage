@@ -10,7 +10,7 @@ const ModelViewer = ({ modelLink, enableRotation = true, enableZoom = true, widt
   useEffect(() => {
     if (WebGL.isWebGLAvailable()) {
       if (!modelLink.endsWith('.glb') && !modelLink.endsWith('.gltf')) {
-        console.error("Invalid model format. Please provide a '.glb' or '.gltf' file.");
+       alert("Invalid model format. Please provide a '.glb' or '.gltf' file.");
         return;
       }
 
