@@ -39,7 +39,7 @@ const ModelViewer = ({ modelLink, enableRotation = true, enableZoom = true, widt
             loader.load(modelLink, resolve, undefined, reject);
           });
           model = gltf.scene;
-          model.scale.set(3, 3, 3);
+          model.scale.set(1, 1, 1);
           scene.add(model);
         } catch (error) {
           console.error("An error occurred while loading the model", error);
