@@ -14,7 +14,7 @@
 
 To get started, install the package via npm:
 
-npm i 
+### npm i 3dmodelviewinreact
 
 
 Usage
@@ -45,11 +45,11 @@ export default My3DModelComponent;**
 
 Props
 
-`modelLink`: (string, required) The URL or path to the .glb or .gltf model you want to display.
-`width`: (number, optional) The width of the canvas in pixels. Default is 150.
-`height`: (number, optional) The height of the canvas in pixels. Default is 150.
-`enableRotation`: (boolean, optional) Enable or disable the ability to rotate the model. Default is true.
-`enableZoom`: (boolean, optional) Enable or disable the ability to zoom into the model. Default is true.
+modelLink: (string, required) The URL or path to the .glb or .gltf model you want to display.
+width: (number, optional) The width of the canvas in pixels. Default is 150.
+height: (number, optional) The height of the canvas in pixels. Default is 150.
+enableRotation: (boolean, optional) Enable or disable the ability to rotate the model. Default is true.
+enableZoom: (boolean, optional) Enable or disable the ability to zoom into the model. Default is true.
 
 
 ### Example Use Cases
@@ -92,3 +92,5 @@ Future Plans
 Support for additional 3D model formats.
 Enhanced controls and additional customization options.
 Improved performance optimizations.
+
+
