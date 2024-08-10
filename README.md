@@ -32,7 +32,7 @@ const My3DModelComponent = () => {
       modelLink="model/car.glb" 
       width={200} 
       height={200} 
-      enableRotate={false} 
+      enableRotation={false} 
       enableZoom={false} 
     />
   );
@@ -48,7 +48,7 @@ Props
 `modelLink`: (string, required) The URL or path to the .glb or .gltf model you want to display.
 `width`: (number, optional) The width of the canvas in pixels. Default is 150.
 `height`: (number, optional) The height of the canvas in pixels. Default is 150.
-`enableRotate`: (boolean, optional) Enable or disable the ability to rotate the model. Default is true.
+`enableRotation`: (boolean, optional) Enable or disable the ability to rotate the model. Default is true.
 `enableZoom`: (boolean, optional) Enable or disable the ability to zoom into the model. Default is true.
 
 
@@ -63,7 +63,7 @@ If you need to display a 3D model as a thumbnail without user interaction, you c
   modelLink="model/car.glb" 
   width={100} 
   height={100} 
-  enableRotate={false} 
+  enableRotation={false} 
   enableZoom={false} 
 />**
 ```
@@ -75,7 +75,7 @@ For a more interactive experience where users can rotate and zoom into the model
   modelLink="model/robot.glb" 
   width={300} 
   height={300} 
-  enableRotate={true} 
+  enableRotation={true} 
   enableZoom={true} 
 />**
 ```
